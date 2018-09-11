@@ -19,8 +19,8 @@
   --h1-font-size-min: 2.0;
   --h1-font-size-max: 5;
   --h1-vf-wght-multiplier-s: 2;
-  --h1-vf-wght-multiplier-m: 2.25;
-  --h1-vf-wght-multiplier-l: 2.5;
+  --h1-vf-wght-multiplier-m: 2.125;
+  --h1-vf-wght-multiplier-l: 2.25;
   --h1-vf-wdth: 100;
   /* H2 variables */
   --h2-line-height-min: 1.15;
@@ -98,18 +98,24 @@ p {
 /* Variations and variables */
 p {
   font-size: calc( var(--p-font-size-min) * 1rem);
-  font-variation-settings: "wght" var(--p-vf-wght), "wdth" calc( var(--p-vf-wdth) * .85), "opsz" calc( var(--p-font-size-min) * 16), "GRAD" var(--text-GRAD);
+  font-stretch: calc( ( var(--p-vf-wdth) * .85 ) * 1%);
+  font-weight: var(--p-vf-wght);
+  font-variation-settings: "opsz" calc( var(--p-font-size-min) * 16), "GRAD" var(--text-GRAD);
   line-height: var(--p-line-height-min); }
   .inverse p {
     --text-GRAD: 120; }
   @media screen and (min-width: 24.15em) {
     p {
-      font-variation-settings: "wght" var(--p-vf-wght), "wdth" calc( var(--p-vf-wdth) * .90), "opsz" calc( var(--p-font-size-min) * 18), "GRAD" var(--text-GRAD);
+      font-stretch: calc( ( var(--p-vf-wdth) * .90 ) * 1%);
+      font-weight: var(--p-vf-wght);
+      font-variation-settings: "opsz" calc( var(--p-font-size-min) * 18), "GRAD" var(--text-GRAD);
       line-height: calc(( var(--p-line-height-min) * 1em ) + ( var(--p-line-height-max) - var(--p-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-large) - var(--bp-small) ))); } }
   @media (min-width: 60.25em) {
     p {
       font-size: calc(( var(--p-font-size-min) * 1em ) + ( var(--p-font-size-max) - var(--p-font-size-min) ) * ((100vw - ( var(--bp-large) * 1em )) / ( var(--bp-xlarge) - var(--bp-large) )));
-      font-variation-settings: "wght" var(--p-vf-wght), "wdth" calc( var(--p-vf-wdth) * 1), "opsz" calc( var(--p-font-size-max) * 16), "GRAD" var(--text-GRAD);
+      font-stretch: calc( ( var(--p-vf-wdth) * 1 ) * 1%);
+      font-weight: var(--p-vf-wght);
+      font-variation-settings: "opsz" calc( var(--p-font-size-min) * 18), "GRAD" var(--text-GRAD);
       line-height: var(--p-line-height-max); } }
   @media (min-width: 75em) {
     p {
@@ -118,14 +124,17 @@ p {
 /* Generic header styles */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Amstelvar 1.1 VF", Georgia, "New Times Roman", serif;
-  font-weight: normal;
-  font-variation-settings: "wght" 600, "wdth" 100, "opsz" 24, "GRAD" var(--text-GRAD);
+  font-stretch: 100%;
+  font-weight: 600;
+  font-variation-settings: "opsz" 24, "GRAD" var(--text-GRAD);
   transition: all linear 0.2s; }
 
 h1 {
   font-family: "Amstelvar 1.1 VF", Georgia, "New Times Roman", serif;
   font-size: calc( var(--h1-font-size-min) * 1em);
-  font-variation-settings: "wght" calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-s)), "wdth" calc( var(--h1-vf-wdth) * .75), "YTLC" 500, "YTAS" 680, "YTDE" 190, "YTUC" 720, "opsz" calc( var(--h1-font-size-min) * 16), "GRAD" var(--text-GRAD);
+  font-stretch: calc( ( var(--h1-vf-wdth) * .75 ) * 1%);
+  font-weight: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-s));
+  font-variation-settings: "YTLC" 500, "YTAS" 680, "YTDE" 190, "YTUC" 720, "opsz" calc( var(--h1-font-size-min) * 16), "GRAD" var(--text-GRAD);
   line-height: var(--h1-line-height-min);
   margin: 1rem auto;
   max-width: 50rem; }
@@ -134,27 +143,34 @@ h1 {
   @media screen and (min-width: 24.15em) {
     h1 {
       line-height: calc(( var(--h1-line-height-min) * 1em ) + ( var(--h1-line-height-max) - var(--h1-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) )));
-      font-size: calc(( var(--h1-font-size-min) * 1em ) + ( var(--h1-font-size-max) - var(--h1-font-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-large) - var(--bp-small) ))); } }
+      font-size: calc(( var(--h1-font-size-min) * 1em ) + ( var(--h1-font-size-max) - var(--h1-font-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) ))); } }
   @media screen and (min-width: 43.75em) {
     h1 {
-      font-variation-settings: "wght" calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-m)), "wdth" calc( var(--h1-vf-wdth) * .82), "YTLC" 500, "YTAS" 715, "YTDE" 190, "YTUC" 735, "opsz" calc( ( (( var(--h1-font-size-max) - var(--h1-font-size-min) ) / 2 ) + var(--h1-font-size-min) ) * 16), "GRAD" var(--text-GRAD);
+      font-stretch: calc( ( var(--h1-vf-wdth) * .82 ) * 1%);
+      font-weight: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-m));
+      font-variation-settings: "YTLC" 500, "YTAS" 715, "YTDE" 190, "YTUC" 735, "opsz" calc( ( (( var(--h1-font-size-max) - var(--h1-font-size-min) ) / 2 ) + var(--h1-font-size-min) ) * 16), "GRAD" var(--text-GRAD);
       max-width: 60rem; } }
   @media screen and (min-width: 60.25em) {
     h1 {
-      font-variation-settings: "wght" calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-l)), "wdth" calc( var(--h1-vf-wdth) * .94), "YTLC" 500, "YTAS" 730, "YTDE" 220, "YTUC" 750, "opsz" calc( ( (( var(--h1-font-size-max) - var(--h1-font-size-min) ) / 2 ) + var(--h1-font-size-min) ) * 16), "GRAD" var(--text-GRAD);
+      font-stretch: calc( ( var(--h1-vf-wdth) * .94 ) * 1%);
+      font-weight: calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-l));
+      font-variation-settings: "YTLC" 500, "YTAS" 730, "YTDE" 220, "YTUC" 750, "opsz" calc( ( (( var(--h1-font-size-max) - var(--h1-font-size-min) ) / 2 ) + var(--h1-font-size-min) ) * 16), "GRAD" var(--text-GRAD);
       line-height: var(--h1-line-height-max);
       max-width: 70rem; } }
   @media (min-width: 75em) {
     h1 {
       font-size: calc( var(--h1-font-size-max) * 1em);
-      font-variation-settings: "wght" calc( var(--p-vf-wght) * var(--h1-vf-wght-multiplier-l)), "wdth" calc( var(--h1-vf-wdth) * 1), "YTLC" 500, "YTAS" 750, "YTDE" 250, "YTUC" 750, "opsz" calc( var(--h1-font-size-max) * 16), "GRAD" var(--text-GRAD);
+      font-stretch: calc( ( var(--h1-vf-wdth) * 1 ) * 1%);
+      font-variation-settings: "YTLC" 500, "YTAS" 750, "YTDE" 250, "YTUC" 750, "opsz" calc( var(--h1-font-size-max) * 16), "GRAD" var(--text-GRAD);
       line-height: var(--h1-line-height-max);
       max-width: 75rem; } }
 
 h2 {
   font-family: "Amstelvar 1.1 VF", Georgia, "New Times Roman", serif;
   font-size: calc( var(--h2-font-size-min) * 1em);
-  font-variation-settings: "wght" calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-s)), "wdth" calc( var(--h2-vf-wdth) * .80), "opsz" calc( var(--h2-font-size-min) * 16), "GRAD" var(--text-GRAD);
+  font-stretch: calc( ( var(--h2-vf-wdth) * .80 ) * 1%);
+  font-weight: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-s));
+  font-variation-settings: "opsz" calc( var(--h2-font-size-min) * 16), "GRAD" var(--text-GRAD);
   line-height: var(--h2-line-height-min);
   margin: 0 auto 2rem auto;
   max-width: 50rem; }
@@ -166,7 +182,9 @@ h2 {
       font-size: calc(( var(--h2-font-size-min) * 1em ) + ( var(--h2-font-size-max) - var(--h2-font-size-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-xlarge) - var(--bp-small) ))); } }
   @media screen and (min-width: 43.75em) {
     h2 {
-      font-variation-settings: "wght" calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-m)), "wdth" calc( var(--h2-vf-wdth) * .90), "opsz" calc( ( (( var(--h2-font-size-max) - var(--h2-font-size-min) ) / 2 ) + var(--h2-font-size-min) ) * 16), "GRAD" var(--text-GRAD);
+      font-stretch: calc( ( var(--h2-vf-wdth) * .90 ) * 1%);
+      font-weight: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-m));
+      font-variation-settings: "opsz" calc( ( (( var(--h2-font-size-max) - var(--h2-font-size-min) ) / 2 ) + var(--h2-font-size-min) ) * 16), "GRAD" var(--text-GRAD);
       max-width: 60rem; } }
   @media screen and (min-width: 60.25em) {
     h2 {
@@ -174,7 +192,9 @@ h2 {
   @media (min-width: 75em) {
     h2 {
       font-size: calc( var(--h2-font-size-max) * 1em);
-      font-variation-settings: "wght" calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-l)), "wdth" calc( var(--h2-vf-wdth) * 1), "opsz" calc( var(--h2-font-size-max) * 16), "GRAD" var(--text-GRAD);
+      font-stretch: calc( ( var(--h2-vf-wdth) * 1 ) * 1%);
+      font-weight: calc( var(--p-vf-wght) * var(--h2-vf-wght-multiplier-l));
+      font-variation-settings: "opsz" calc( var(--h2-font-size-max) * 16), "GRAD" var(--text-GRAD);
       line-height: var(--h2-line-height-max);
       max-width: 75rem; } }
 
@@ -182,7 +202,9 @@ blockquote {
   float: right;
   font-family: "Amstelvar 1.1 VF", Georgia, "New Times Roman", serif;
   font-size: 6.5vw;
-  font-variation-settings: "wght" 400, "wdth" 80, "YTDE" 190, "opsz" 40, "GRAD" var(--text-GRAD);
+  font-stretch: 80%;
+  font-weight: 400;
+  font-variation-settings: "YTDE" 190, "opsz" 40, "GRAD" var(--text-GRAD);
   line-height: var(--bq-line-height-min);
   margin: 0 5vw 1rem .5rem;
   max-width: 45vw;
@@ -197,14 +219,20 @@ blockquote {
     margin-right: .5rem; }
   blockquote .well-used {
     font-size: 1.25em;
-    font-variation-settings: "wght" 350, "wdth" 80, "YTAS" 615, "YTDE" 190, "opsz" 48, "GRAD" var(--text-GRAD); }
+    font-stretch: 80%;
+    font-weight: 350;
+    font-variation-settings: "YTAS" 615, "YTDE" 190, "opsz" 48, "GRAD" var(--text-GRAD); }
   blockquote .invisible {
     font-size: 1.5em;
-    font-variation-settings: "wght" 400, "wdth" 80, "YTAS" 615, "YTDE" 190, "opsz" 48, "GRAD" var(--text-GRAD); }
+    font-stretch: 80%;
+    font-weight: 400;
+    font-variation-settings: "YTAS" 615, "YTDE" 190, "opsz" 48, "GRAD" var(--text-GRAD); }
   @media screen and (min-width: 24.15em) {
     blockquote {
       line-height: calc(( var(--bq-line-height-min) * 1em ) + ( var(--bq-line-height-max) - var(--bq-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-large) - var(--bp-small) )));
-      font-variation-settings: "wght" 350, "wdth" 80, "YTDE" 190, "opsz" 40, "GRAD" var(--text-GRAD);
+      font-stretch: 80%;
+      font-weight: 350;
+      font-variation-settings: "YTDE" 190, "opsz" 40, "GRAD" var(--text-GRAD);
       margin: 0 5vw .5rem .5rem;
       max-width: 47.5vw; }
       blockquote.right {
@@ -215,14 +243,20 @@ blockquote {
         margin-right: .5rem; }
       blockquote .well-used {
         font-size: 1.33em;
-        font-variation-settings: "wght" 450, "wdth" 80, "YTAS" 650, "YTDE" 190, "opsz" 60, "GRAD" var(--text-GRAD); }
+        font-stretch: 80%;
+        font-weight: 450;
+        font-variation-settings: "YTAS" 650, "YTDE" 190, "opsz" 60, "GRAD" var(--text-GRAD); }
       blockquote .invisible {
         font-size: 1.55em;
-        font-variation-settings: "wght" 425, "wdth" 85, "YTAS" 650, "YTDE" 190, "opsz" 60, "GRAD" var(--text-GRAD); } }
+        font-stretch: 85%;
+        font-weight: 425;
+        font-variation-settings: "YTAS" 650, "YTDE" 190, "opsz" 60, "GRAD" var(--text-GRAD); } }
   @media (min-width: 60.25em) {
     blockquote {
       line-height: var(--bq-line-height-max);
-      font-variation-settings: "wght" 300, "wdth" 80, "YTDE" 250, "opsz" 65, "GRAD" var(--text-GRAD);
+      font-stretch: 80%;
+      font-weight: 300;
+      font-variation-settings: "YTDE" 250, "opsz" 65, "GRAD" var(--text-GRAD);
       margin: 0 12vw 2rem 2rem;
       max-width: 29.5vw; }
       blockquote.right {
@@ -233,11 +267,15 @@ blockquote {
         margin-right: 2rem; }
       blockquote .well-used {
         font-size: 1.33em;
-        font-variation-settings: "wght" 400, "wdth" 85, "YTAS" 715, "YTDE" 190, "opsz" 65, "GRAD" var(--text-GRAD);
+        font-stretch: 85%;
+        font-weight: 400;
+        font-variation-settings: "YTAS" 715, "YTDE" 190, "opsz" 65, "GRAD" var(--text-GRAD);
         line-height: .75; }
       blockquote .invisible {
         font-size: 1.66em;
-        font-variation-settings: "wght" 325, "wdth" 85, "YTAS" 750, "YTDE" 250, "opsz" 72, "GRAD" var(--text-GRAD);
+        font-stretch: 85%;
+        font-weight: 325;
+        font-variation-settings: "YTAS" 750, "YTDE" 250, "opsz" 72, "GRAD" var(--text-GRAD);
         line-height: .75; } }
 
 img {
@@ -262,17 +300,23 @@ h2 + p {
 /* First-line styles */
 .article-detail > p:first-of-type:first-line {
   font-family: "Amstelvar 1.1 VF", Georgia, "New Times Roman", serif;
-  font-variation-settings: "wght" 500, "wdth" 90, "opsz" 10, "GRAD" var(--text-GRAD); }
+  font-stretch: 90%;
+  font-weight: 500;
+  font-variation-settings: "opsz" 10, "GRAD" var(--text-GRAD); }
   @media screen and (min-width: 43.75em) {
     .article-detail > p:first-of-type:first-line {
-      font-variation-settings: "wght" 500, "wdth" 100, "opsz" 20, "GRAD" var(--text-GRAD); } }
+      font-stretch: 100%;
+      font-weight: 500;
+      font-variation-settings: "opsz" 20, "GRAD" var(--text-GRAD); } }
 
 /* Initial Cap styles */
 .article-detail.initial p:first-of-type:first-letter {
   float: left;
   padding-right: 0.05em;
   font-family: "Amstelvar 1.1 VF", Georgia, "New Times Roman", serif;
-  font-variation-settings: "wght" 650, "wdth" 100, "opsz" calc( var(--dc-font-size-min) * 16), "GRAD" var(--text-GRAD);
+  font-stretch: 100%;
+  font-weight: 650;
+  font-variation-settings: "opsz" calc( var(--dc-font-size-min) * 16), "GRAD" var(--text-GRAD);
   font-size: 2.7em;
   line-height: var(--dc-line-height-min);
   margin-bottom: -.1em; }
@@ -282,11 +326,15 @@ h2 + p {
       line-height: calc(( var(--dc-line-height-min) * 1em ) + ( var(--dc-line-height-max) - var(--dc-line-height-min) ) * ((100vw - ( var(--bp-small) * 1em )) / ( var(--bp-large) - var(--bp-small) ))); } }
   @media screen and (min-width: 43.75em) {
     .article-detail.initial p:first-of-type:first-letter {
-      font-variation-settings: "wght" 670, "wdth" 100, "opsz" calc( ( (( var(--dc-font-size-max) - var(--dc-font-size-min) ) / 2 ) + var(--dc-font-size-min) ) * 16), "GRAD" var(--text-GRAD); } }
+      font-stretch: 100%;
+      font-weight: 670;
+      font-variation-settings: "opsz" calc( ( (( var(--dc-font-size-max) - var(--dc-font-size-min) ) / 2 ) + var(--dc-font-size-min) ) * 16), "GRAD" var(--text-GRAD); } }
   @media (min-width: 60.25em) {
     .article-detail.initial p:first-of-type:first-letter {
       font-size: calc( var(--dc-font-size-max) * 1em);
-      font-variation-settings: "wght" 850, "wdth" 100, "opsz" calc( var(--dc-font-size-max) * 16), "GRAD" var(--text-GRAD);
+      font-stretch: 100%;
+      font-weight: 850;
+      font-variation-settings: "opsz" calc( var(--dc-font-size-max) * 16), "GRAD" var(--text-GRAD);
       line-height: var(--dc-line-height-max); } }
 
 /* Content end styles */
